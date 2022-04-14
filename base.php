@@ -69,7 +69,7 @@ class DB{
             $sql .= " VALUES('".join("','",$array)."')";
 
         }
-        echo $sql;
+        // echo $sql;
         return $this->pdo->exec($sql);
 
     }
@@ -77,7 +77,7 @@ class DB{
         $sql="DELETE FROM $this->table ";
 
         if(is_array($id)){
-            foreach($arg[0] as $key => $val){
+            foreach($id as $key => $val){
                 $tmp[]="`$key`='$val'";
             }
             $sql .= " WHERE " . implode(" && ",$tmp);
@@ -88,9 +88,6 @@ class DB{
         return $this->pdo->exec($sql);
     }
 
-    function q($sql){
-        return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-    }
     function math($math,$col,...$arg){
         $sql="SELECT $math($col) FROM $this->table ";
         switch(count($arg)){
@@ -131,17 +128,12 @@ function to($url){
     header("location:".$url);
 }
 
-$Mem=new DB("member");
-$Admin=new DB('admin');
-$Bot=new DB('bottom');
-$Ord=new DB('ord');
-$Type=new DB('type');
-$Goods=new DB('goods');
+$Mem=new DB("web04_member");
+$Admin=new DB('web04_admin');
+$Bot=new DB('web04_bottom');
+$Ord=new DB('web04_ord');
+$Type=new DB('web04_type');
+$Goods=new DB('web04_goods');
 
-
-/* $admin['acc']='admin';
-$admin['pw']='1234';
-$admin['pr']=serialize([1,2,3,4,5]);
-$Admin->save($admin); */
 ?>
 
