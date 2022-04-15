@@ -1,6 +1,6 @@
 <h1>第一次購物</h1>
 <a href="?do=reg">
-    <img src="icon/0413.jpg" alt="">
+    <img src="icon/0413.jpg">
 </a>
 
 <h1>會員登入</h1>
@@ -42,10 +42,10 @@
         }
         $.post("api/chk_ans.php",{ans:$('#ans').val()},(chk)=>{
             if(parseInt(chk)>0){
-                $.post("api/chk_pw.php",{table:'web04_member',acc:mem.acc,pw:mem.pw},(res)=>{
+                $.post("api/chk_pw.php",{table:'web04_admin',acc:mem.acc,pw:mem.pw},(res)=>{
                     //post傳data 放物件mem的話不用加中括號
                     if(parseInt(res)>0){
-                        location.href="index.php";
+                        location.href="back.php";
                     }else{
                         alert("帳號或密碼錯誤")
                     }

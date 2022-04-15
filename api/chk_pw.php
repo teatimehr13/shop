@@ -10,6 +10,8 @@ if($chk>0){
         break;
         case 'web04_admin':
             $_SESSION['admin']=$_POST['acc'];
+            $admin=$Admin->find(['acc'=>$_POST['acc'],'pw'=>$_POST['pw']]);
+            $_SESSION['pr']=unserialize($admin['pr']);
         break;
     }
 }else{
