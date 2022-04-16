@@ -45,15 +45,3 @@
         <button onclick="location.href='index.php'">返回</button>
     </div>
 </div>
-
-<script>
-    function del(table,id){
-        let confirms='確定要刪除嗎?';
-        if(confirm(confirms)==true){
-            $.post("api/del.php",{table,id},()=>{
-                history.go(0);
-            })
-        }
-        
-    }
-</script>
