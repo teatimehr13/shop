@@ -61,11 +61,11 @@ body
 .all
 {
 	width:90%;
-	margin:10px auto 10px auto;
+	/* margin:10px auto 10px auto; */
 }
 .all td
 {
-	min-width:100px;
+	min-width:75px;
 	padding:10px;
 }
 .tt
