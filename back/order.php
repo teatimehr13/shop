@@ -9,19 +9,20 @@
         <td>下單時間</td>
         <td>操作</td>
     </tr>
-    <tr class="pp ct">
-        <?php
-        $ords = $Ord->all();
-        foreach ($ords as $ord) {
-        ?>
-            <td><a href="?do=detail&id=<?=$ord['id'];?>"><?=$ord['no'];?></a></td>
-            <td><?=$ord['total'];?></td>
-            <td><?=$ord['acc'];?></td>
-            <td><?=$ord['name'];?></td>
-            <td><?=date("Y-m-d",strtotime($ord['orddate']));?></td> <!--轉成秒數再轉date-->
-            <td><button onclick="del('ord',<?=$ord['id'];?>)">刪除</button></td>
-        <?php
-        }
-        ?>
-    </tr>
+    <?php
+    $ords = $Ord->all();
+    foreach ($ords as $ord) {
+    ?>
+        <tr class="pp ct">
+            <td><a href="?do=detail&id=<?= $ord['id']; ?>"><?= $ord['no']; ?></a></td>
+            <td><?= $ord['total']; ?></td>
+            <td><?= $ord['acc']; ?></td>
+            <td><?= $ord['name']; ?></td>
+            <td><?= date("Y-m-d", strtotime($ord['orddate'])); ?></td>
+            <!--轉成秒數再轉date-->
+            <td><button onclick="del('web04_ord',<?= $ord['id']; ?>)">刪除</button></td>
+        </tr>
+    <?php
+    }
+    ?>
 </table>
