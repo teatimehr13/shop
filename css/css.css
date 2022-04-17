@@ -35,6 +35,13 @@ body
 	margin:10px auto 10px auto;
 	color:#65350A;
 }
+
+/* 在./css/css.css中指定詳細的中分類樣式，並指定其中的選單背景為淺綠色
+ *  要記得加上#left在最前面來提高這個css的優先權
+ */
+#left .s a{
+	background:lightgreen;
+}
 .ct
 {
 	text-align:center;
