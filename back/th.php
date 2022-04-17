@@ -35,6 +35,43 @@
     ?>
 </table>
 
+<h1 class="ct">商品管理</h1>
+<div class="ct">
+    <button onclick="location.href='?do=add_goods'">新增商品</button>
+</div>
+<table class='all'>
+    <tr class="tt ct">
+        <td>編號</td>
+        <td>商品名稱</td>
+        <td>庫存量</td>
+        <td>狀態</td>
+        <td>操作</td>
+    </tr>
+
+    <?php
+        $goods=$Goods->all();
+        foreach($goods as $key =>$good){
+    ?>
+
+
+    <tr class="pp ct">
+        <td><?=$good['no'];?></td>
+        <td style="text-align:left;"><?=$good['name'];?></td>
+        <td><?=$good['stock'];?></td>
+        <td><?=($good['sh']==1)?"販售中":"已下架";?></td>
+        <td>
+            <button onclick="location.href='?do=edit_goods&id=<?=$good['id'];?>'">修改</button>
+            <button onclick="del('web04_goods',<?=$good['id'];?>)">刪除</button>
+            <button onclick="show(this,<?=$good['id'];?>,1)">上架</button>
+            <button onclick="show(this,<?=$good['id'];?>,0)">下架</button>
+        </td>
+    </tr>
+
+    <?php
+        }
+    ?>
+</table>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
@@ -63,6 +100,20 @@
         let revise=prompt("請輸入要修改的分類文字:",$(dom).parent().prev().text())
         $.post("api/save_type.php",{name:revise,id},()=>{
             $(dom).parent().prev().text(revise);
+        })
+    }
+
+    function show(dom,id,sh){
+        $.post("api/show.php",{id,sh},()=>{
+            switch(sh){
+            case 1:
+                $(dom).parent().prev().text('販售中')
+            break;
+            case 0:
+                $(dom).parent().prev().text('已下架')
+            break;
+            }
+            // location.reload();
         })
     }
 </script>
