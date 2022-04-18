@@ -1,4 +1,4 @@
-<?php include_once "base.php"; ?>
+<?php include_once "base.php"; ob_start(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,8 +23,20 @@
                                 <a href="?do=look">購物流程</a> |
                                 <a href="?do=buycart">購物車</a> |
                                 <a href="?do=order">訂單查詢</a> |
-                                <a href="?do=login">會員登入</a> |
-                                <a href="?do=admin">管理登入</a>
+                                <?php
+                                if(isset($_SESSION['mem'])){
+                                        echo "<a href='#' onclick=logout('member')>登出</a>";
+                                    }else{
+                                        echo "<a href='?do=login'>會員登入</a>";
+                                    }
+                                    echo " | ";
+                                    
+                                    if(isset($_SESSION['admin'])){
+                                        echo "<a href='back.php'>返回管理</a>";
+                                    }else{
+                                        echo "<a href='?do=admin'>管理登入</a>";
+                                    }
+                                ?>
                         </div>
                         情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~
                 </div>
@@ -62,11 +74,7 @@
                                 }
                                 ?>
                         </div>
-                        <span>
-                                <div>進站總人數</div>
-                                <div style="color:#f00; font-size:28px;">
-                                        00005 </div>
-                        </span>
+
                 </div>
                 <div id="right">
                         <?php
@@ -82,7 +90,9 @@
                 <div id="bottom" style="line-height:70px;background:url(icon/bot.png); color:#FFF;" class="ct">
                         <?= $Bot->find(1)['bottom']; ?> </div>
         </div>
-
+<?php
+ob_end_flush();
+?>
 </body>
 
 </html>

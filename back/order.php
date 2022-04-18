@@ -7,6 +7,7 @@
         <td>會員帳號</td>
         <td>姓名</td>
         <td>下單時間</td>
+        <td>狀態</td>
         <td>操作</td>
     </tr>
     <?php
@@ -20,9 +21,20 @@
             <td><?= $ord['name']; ?></td>
             <td><?= date("Y-m-d", strtotime($ord['orddate'])); ?></td>
             <!--轉成秒數再轉date-->
-            <td><button onclick="del('web04_ord',<?= $ord['id']; ?>)">刪除</button></td>
+            <td><a href='' onclick="sw('<?= $ord['status']; ?>',<?= $ord['id']; ?>)"><?=($ord['status']==1)?'處理中':'已完成'?></a></td>
+            <td>
+                <button onclick="del('web04_ord',<?= $ord['id']; ?>)">刪除</button>
+            </td>
         </tr>
     <?php
     }
     ?>
 </table>
+
+<script>
+    function sw(sh,id){
+        $.post("api/sw.php",{sh,id},()=>{
+            location.reload()
+        })
+    }
+</script>

@@ -4,8 +4,8 @@ function lof(x)
 	location.href=x
 }
 
-function logout(){
-	$.post("api/logout.php",()=>{
+function logout(table){
+	$.post("api/logout.php",{table},()=>{
 		location.href='index.php';
 	})
 }
@@ -19,3 +19,5 @@ function del(table,id){
 	}
 	
 }
+
+output_buffering=4096;

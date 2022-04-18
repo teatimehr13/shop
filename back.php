@@ -38,17 +38,17 @@
                             <?=(in_array(3,$_SESSION['pr']))?"<a href='?do=mem'>會員管理</a>":''?>
                             <?=(in_array(4,$_SESSION['pr']))?"<a href='?do=bot'>頁尾版權管理</a>":''?>
                             <?=(in_array(5,$_SESSION['pr']))?"<a href='?do=news'>最新消息管理</a>":''?>
-            	        	<a href="#" style="color:#f00;" onclick=logout()>登出</a>
+            	        	<a href="#" style="color:#f00;" onclick="logout('admin')">登出</a>
                     </div>
                     </div>
         <div id="right">
 		<?php
-                        $do=$_GET['do']??'main';
+                        $do=$_GET['do']??'admin';
                         $files='back/'.$do.'.php';
                         if(file_exists($files)){
                                 include $files;
                         }else{
-                                include 'back/main.php';
+                                include 'back/admin.php';
                         }
                 ?>
         	        </div>
