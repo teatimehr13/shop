@@ -8,8 +8,6 @@
 
         <title>┌精品電子商務網站」</title>
         <link href="./css/css.css" rel="stylesheet" type="text/css">
-        <script src="./js/js.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -24,6 +22,7 @@
                                 <a href="?do=news">最新消息</a> |
                                 <a href="?do=look">購物流程</a> |
                                 <a href="?do=buycart">購物車</a> |
+                                <a href="?do=order">訂單查詢</a> |
                                 <a href="?do=login">會員登入</a> |
                                 <a href="?do=admin">管理登入</a>
                         </div>
@@ -87,3 +86,6 @@
 </body>
 
 </html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="./js/js.js"></script>
