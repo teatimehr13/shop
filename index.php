@@ -71,12 +71,12 @@
                 </div>
                 <div id="right">
                         <?php
-                        $do = $_GET['do'] ?? 'home';
+                        $do = $_GET['do'] ?? 'main';
                         $files = 'front/' . $do . '.php';
                         if (file_exists($files)) {
                                 include $files;
                         } else {
-                                include 'front/home.php';
+                                include 'front/main.php';
                         }
                         ?>
                 </div>
