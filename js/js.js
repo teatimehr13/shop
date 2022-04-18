@@ -17,7 +17,5 @@ function del(table,id){
 			history.go(0);
 		})
 	}
-	
-}
 
-output_buffering=4096;
+}
